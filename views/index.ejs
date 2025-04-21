@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Autos</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <h1>Autos en Venta</h1>
+  <a href="/crear">+ Nuevo Auto</a>
+  <table border="1">
+    <tr>
+      <th>Marca</th><th>Modelo</th><th>Año</th><th>Precio</th>
+      <th>Color</th><th>Transmisión</th><th>Estado</th><th>Acciones</th>
+    </tr>
+    <% autos.forEach(auto => { %>
+      <tr>
+        <td><%= auto.marca %></td>
+        <td><%= auto.modelo %></td>
+        <td><%= auto.año %></td>
+        <td>$<%= auto.precio %></td>
+        <td><%= auto.color %></td>
+        <td><%= auto.transmision %></td>
+        <td><%= auto.estado %></td>
+        <td>
+          <a href="/editar/<%= auto.id %>">Editar</a> |
+          <a href="/eliminar/<%= auto.id %>" onclick="return confirm('¿Eliminar auto?')">Eliminar</a>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
