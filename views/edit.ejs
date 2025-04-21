@@ -1,20 +1,34 @@
-<h1>Editar Auto</h1>
-<form action="/editar/<%= auto.id %>" method="POST">
-  Marca: <input name="marca" value="<%= auto.marca %>"><br>
-  Modelo: <input name="modelo" value="<%= auto.modelo %>"><br>
-  Año: <input type="number" name="año" value="<%= auto.año %>"><br>
-  Precio: <input type="number" step="0.01" name="precio" value="<%= auto.precio %>"><br>
-  Color: <input name="color" value="<%= auto.color %>"><br>
-  Transmisión: 
-  <select name="transmision">
-    <option <%= auto.transmision === 'Manual' ? 'selected' : '' %>>Manual</option>
-    <option <%= auto.transmision === 'Automática' ? 'selected' : '' %>>Automática</option>
-  </select><br>
-  Estado: 
-  <select name="estado">
-    <option <%= auto.estado === 'Disponible' ? 'selected' : '' %>>Disponible</option>
-    <option <%= auto.estado === 'Vendido' ? 'selected' : '' %>>Vendido</option>
-  </select><br>
-  <button>Actualizar</button>
-</form>
-<a href="/">Volver</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Auto</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-4">
+  <h1>Editar Auto</h1>
+  <form action="/editar/<%= auto.id %>" method="POST" class="row g-3">
+    <div class="col-md-6"><label class="form-label">Marca</label><input name="marca" value="<%= auto.marca %>" class="form-control"></div>
+    <div class="col-md-6"><label class="form-label">Modelo</label><input name="modelo" value="<%= auto.modelo %>" class="form-control"></div>
+    <div class="col-md-4"><label class="form-label">Año</label><input type="number" name="año" value="<%= auto.año %>" class="form-control"></div>
+    <div class="col-md-4"><label class="form-label">Precio</label><input type="number" step="0.01" name="precio" value="<%= auto.precio %>" class="form-control"></div>
+    <div class="col-md-4"><label class="form-label">Color</label><input name="color" value="<%= auto.color %>" class="form-control"></div>
+    <div class="col-md-6"><label class="form-label">Transmisión</label>
+      <select name="transmision" class="form-select">
+        <option <%= auto.transmision === 'Manual' ? 'selected' : '' %>>Manual</option>
+        <option <%= auto.transmision === 'Automática' ? 'selected' : '' %>>Automática</option>
+      </select>
+    </div>
+    <div class="col-md-6"><label class="form-label">Estado</label>
+      <select name="estado" class="form-select">
+        <option <%= auto.estado === 'Disponible' ? 'selected' : '' %>>Disponible</option>
+        <option <%= auto.estado === 'Vendido' ? 'selected' : '' %>>Vendido</option>
+      </select>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary">Actualizar</button>
+      <a href="/" class="btn btn-secondary">Volver</a>
+    </div>
+  </form>
+</body>
+</html>
