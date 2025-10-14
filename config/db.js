@@ -1,10 +1,16 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'venta_autos'
+  host: process.env.HOST,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DB,
+  port: 3600,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 connection.connect((err) => {
